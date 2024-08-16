@@ -40,7 +40,7 @@ jobs:
           
       - name: Create DynamoDB table
         run: |
-          if aws dynamodb describe-table --table-name "terraform-lock-vic" >/dev/null 2>&1; then
+          if aws dynamodb describe-table --table-name "terraform-lock-victo" >/dev/null 2>&1; then
             echo "DynamoDB table already exists, skipping creation."
           else
             aws dynamodb create-table \
