@@ -22,7 +22,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
-  cluster_name                   = "sock-shop"
+  cluster_name                   = "sock-shop-victo"
   cluster_version                = "1.30"
   cluster_endpoint_public_access = true
 
