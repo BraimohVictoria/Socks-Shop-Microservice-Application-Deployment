@@ -60,14 +60,14 @@ jobs:
           aws eks update-kubeconfig --region ${{ vars.REGION }} --name sock-shop
 
       - name: Deploy application
-        run: kubectl apply -f deployment.yml
+        run: kubectl apply -f ./k8/deploy.yaml
 
     
 
       - name: Deploy Prometheus and grafana
         run: |
-          kubectl apply -f /her/file part for the prometheus 
+          kubectl apply -f ./manifest-monitoring\ 
 
       - name: Deploy alert manager
         run: |
-          kubectl apply -f ./herfile part for alert manager
+          kubectl apply -f ./manifest-alert/
