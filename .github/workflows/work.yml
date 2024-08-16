@@ -62,29 +62,12 @@ jobs:
       - name: Deploy application
         run: kubectl apply -f deployment.yml
 
-      - name: Deploy Let's Encrypt
-        run: |
-          helm repo add jetstack https://charts.jetstack.io --force-update
-          helm repo update jetstack
-          helm upgrade --install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.15.2 --set crds.enabled=true
-          kubectl apply -f cert.yml
+    
 
       - name: Deploy Prometheus and grafana
         run: |
-          kubectl apply -f ./manifest-monitoring\ 
+          kubectl apply -f /her/file part for the prometheus 
 
       - name: Deploy alert manager
         run: |
-          kubectl apply -f ./manifest-alert/
-
-      - name: Deploy Nginx Ingress Controller
-        run: |
-          helm repo add nginx https://kubernetes.github.io/ingress-nginx
-          helm repo update nginx
-          helm upgrade --install nginx nginx/ingress-nginx --namespace sock-shop --wait
-
-      - name: Delay
-        run: sleep 120s
-
-      - name: Deploy Ingress Resources
-        run: kubectl apply -f ingress.yml
+          kubectl apply -f ./herfile part for alert manager

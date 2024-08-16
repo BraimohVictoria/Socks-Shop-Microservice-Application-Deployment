@@ -34,14 +34,14 @@ module "eks" {
   }
 
   eks_managed_node_groups = {
-    goody_node_1 = {
+    node_1 = {
       min_size     = 1
       max_size     = 4
       desired_size = 1
 
       instance_types = ["t2.medium"]
     }
-    goody_node_2 = {
+    node_2 = {
       min_size     = 1
       max_size     = 4
       desired_size = 1
@@ -52,5 +52,3 @@ module "eks" {
 
   enable_cluster_creator_admin_permissions = true
 }
-
-
