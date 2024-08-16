@@ -6,7 +6,7 @@ The objective is to deploy a microservices-based application, specifically the S
 The project will leverage Terraform for infrastructure provisioning, GitHub Actions for the deployment pipeline, Kubernetes for container orchestration, Helm for package management, Prometheus for monitoring, the ELK Stack for logging, and Ansible for security.
 
 ## Project Requirements
-Before you begin, ensure you have the following tools installed: 
+Before you begin, ensure you have the following tools installed:
 
 1. Helm
 
