@@ -31,9 +31,10 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-          if ! aws s3api head-bucket --bucket "sock-bucket-v" >/dev/null 2>&1; then
+         if ! aws s3api head-bucket --bucket "sock-bucket-v" >/dev/null 2>&1; then
             echo "Bucket does not exist, creating it."
-            aws s3 mb s3://sock-bucket-v
+            sleep 10  # Wait for 10 seconds before retrying
+            aws s3 mb s3://sock-bucket-v || (echo "Retrying after conflict..." && sleep 10 && aws s3 mb s3://sock-bucket-v)
           else
             echo "Bucket already exists, skipping creation."
           fi
