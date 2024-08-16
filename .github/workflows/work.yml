@@ -31,12 +31,12 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-           if aws s3api head-bucket --bucket "sock-bucket-v" >/dev/null 2>&1; then
-              echo "Bucket already exists, skipping creation."
-            else
-              echo "Bucket does not exist, creating it."
-              aws s3 mb s3://"sock-bucket"
-            fi
+          if ! aws s3api head-bucket --bucket "sock-bucket-v" >/dev/null 2>&1; then
+            echo "Bucket does not exist, creating it."
+            aws s3 mb s3://sock-bucket-v
+          else
+            echo "Bucket already exists, skipping creation."
+          fi
 
       - name: Create DynamoDB table
         run: |
@@ -44,7 +44,7 @@ jobs:
             echo "DynamoDB table already exists, skipping creation."
           else
             aws dynamodb create-table \
-              --table-name "terraform-lock" \
+              --table-name "terraform-lock-v" \
               --attribute-definitions AttributeName=LockID,AttributeType=S \
               --key-schema AttributeName=LockID,KeyType=HASH \
               --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
