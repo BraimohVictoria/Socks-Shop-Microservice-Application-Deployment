@@ -31,11 +31,11 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-          if aws s3api head-bucket --bucket "sock-bucket-vic" >/dev/null 2>&1; then
+          if aws s3api head-bucket --bucket "sock-bucket-victo" >/dev/null 2>&1; then
               echo "Bucket already exists, skipping creation."
             else
               echo "Bucket does not exist, creating it."
-              aws s3 mb s3://"sock-bucket-vic"
+              aws s3 mb s3://"sock-bucket-victo"
             fi
           
       - name: Create DynamoDB table
